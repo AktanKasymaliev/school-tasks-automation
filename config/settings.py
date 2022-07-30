@@ -18,6 +18,7 @@ SECRET_KEY = os.environ.get('DJANGO_KEY')
 DEBUG = eval(os.environ.get('DJANGO_DEBUG'))
 
 ALLOWED_HOSTS = ["*"]
+AUTH_USER_MODEL = 'teachers.Teacher'
 
 # Application definition
 
@@ -31,7 +32,7 @@ INSTALLED_APPS = [
 
     #apps
     'teachers',
-    # 'school'
+    'school'
 ]
 
 MIDDLEWARE = [
