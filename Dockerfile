@@ -8,10 +8,10 @@ WORKDIR /app
 ADD requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY . /app/
-COPY ./entrypoint.sh ./
-RUN chmod +x entrypoint.sh
+COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
+RUN chmod +x docker-entrypoint.sh
+COPY . .
 
 EXPOSE 8000
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT [".  /docker-entrypoint.sh"]
