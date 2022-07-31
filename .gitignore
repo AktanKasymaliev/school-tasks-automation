@@ -1,6 +1,6 @@
 venv/
 .vscode/
-migrations
+000*
 /.env/
 .env/
 /.idea
