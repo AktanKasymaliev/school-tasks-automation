@@ -31,7 +31,11 @@ INSTALLED_APPS = [
 
     #apps
     'teachers',
-    'school'
+    'school',
+
+    #libs
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [

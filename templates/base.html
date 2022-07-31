@@ -19,10 +19,18 @@
           New School Gen
       </a>
      {% if user.is_authenticated %}
-      <a href="#" style="text-decoration: none; font-size: 18px;">{{ request.user }}</a>
-        <a href="{% url 'logout' %}" style="text-decoration: none; margin-right: 50px; color: brown;">
-          Log Out
+        <a href="#" style="text-decoration: none; font-size: 18px;">
+          {{ request.user }}
         </a>
+        <div>
+          <a href="{% url 'student_add' %}" style="text-decoration: none; margin-right: 40px; color: brown;">
+            Add new student
+          </a>
+          <a href="{% url 'logout' %}" style="text-decoration: none; margin-right: 20px; color: brown;">
+            Log Out
+          </a>
+        </div>
+
       {% else %}
         <div class="no-auth" style="margin-right: 50px;">
           <a href="{% url 'signup' %}" style="text-decoration: none; color: brown;">Sign Up</a>
@@ -33,13 +41,13 @@
 
     <!-- Animated background  -->
     <div class="context">
-      {% block content %}
-        <h1>New School Generation</h1>
-      {% endblock %}
+        {% block content %}
+          <h1>New School Generation</h1>
+        {% endblock %}
      </div>
      
-     <div class="area">
-        <ul class="circles">
+     <div class="area" style="height: 1000px;">
+        <ul class="circles" style="height: 1000px;">
            <li></li>
            <li></li>
            <li></li>

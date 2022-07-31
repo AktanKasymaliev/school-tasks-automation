@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block links %}
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 {{ form.media }}
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/student_add.css' %}">
 {% endblock links %}
 
-{% block title %}Log In{% endblock title %}
+{% block title %}Add Student{% endblock title %}
 
 {% block content %}
 <div class="parent">
     <div class="block">
         <br>
-        <h2 class='title'>Log In</h2>
+        <h2 class='title'>Add Student</h2>
 
         <form method="POST" style="width: 300px; margin-left: 350px;">
           {% csrf_token %}
           {% bootstrap_form form %}
-          <center><button type="submit" id='btn' class="btn btn-primary" style=" margin-top: 20px;">Log In</button></center>
+          <center><button type="submit" id='btn' class="btn btn-primary" style=" margin-top: 20px;">New Student</button></center>
         </form>
     </div>
 </div>

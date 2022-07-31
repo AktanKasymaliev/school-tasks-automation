@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import check_password
 
 Teacher = get_user_model()
 
@@ -26,6 +27,7 @@ class SignUpForm(forms.ModelForm):
     }))
 
     def clean(self):
+        print("HASDHAHSDHASDH")
         if not self.cleaned_data['password'] == self.cleaned_data['password2'] or not self.cleaned_data['password2']:
             self._errors['password2'] = self.error_class(['Password doesn\'t match'])
         if Teacher.objects.filter(phone_number=self.cleaned_data['phone_number']).exists():
@@ -51,6 +53,14 @@ class LogInForm(forms.ModelForm):
         'class': 'form-control',
         'placeholder': 'Пароль',
     }))
+
+    def clean(self):
+        teacher = Teacher.objects.filter(phone_number=self.cleaned_data['phone_number'])
+        if not teacher.exists():
+            self._errors['phone_number'] = self.error_class(['Such teacher with phone number does not exist'])
+        elif not check_password(self.cleaned_data['password'], teacher.first().password):
+            self._errors['password'] = self.error_class(['Password incorrect'])
+        return self.cleaned_data
 
     class Meta:
         model = Teacher

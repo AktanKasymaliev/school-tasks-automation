@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block links %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/student_detail.css' %}">
+{% endblock links %}
+
+{% block title %}Student{% endblock title %}
+
+{% block content %}
+<div class="parent">
+    <div class="block">
+        <br>
+        <h2 class='title'>{{ object.full_name }}</h2>
+        {% autoescape off %}
+            <div class="info">
+                    <div class="email">
+                        <strong>Email:</strong> {{ object.email }}
+                    </div>
+                    <div class="date_of_birth">
+                        <strong>Date of birth:</strong> {{ object.date_of_birth }}
+                    </div>
+                    <div class="address">
+                        <strong>Address:</strong> {{ object.address }}
+                    </div>
+                    <div class="sex">
+                        <strong>Sex:</strong> {{ object.sex }}
+                    </div>
+                    <div class="school">
+                        <strong>School:</strong> {{ object.school }}
+                    </div>
+                    <div class="grade">
+                        <strong>Grade:</strong> {{ object.grade }}
+                    </div>
+                    <hr>
+                    <a href="{% url 'student_update' pk=object.id %}">
+                        <button type="button" class="btn btn-primary">Edit Student</button>
+                    </a>
+                    <a href="{% url 'confirm_delete' pk=object.id %}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </div>
+            </div>
+        {% endautoescape %}
+    </div>
+</div>
+{% endblock %}

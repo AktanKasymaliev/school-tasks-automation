@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block links %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
 {% endblock links %}
 
@@ -14,8 +17,8 @@
         <h2 class='title'>Sign Up</h2>
 
         <form method="POST" style="width: 300px; margin-left: 350px;">
-          {{ form.as_p }}
           {% csrf_token %}
+          {% bootstrap_form form %}
           <center><button type="submit" id='btn' class="btn btn-primary" style=" margin-top: 20px;">Sign Up</button></center>
         </form>
 

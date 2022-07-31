@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block links %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/student_detail.css' %}">
+{% endblock links %}
+
+{% block title %}Student deleting{% endblock title %}
+
+{% block content %}
+<div class="parent">
+    <div class="block">
+        <br><br><br><br><br>
+        <h2 class='title'>Are you sure?</h2>
+        <div class="info">
+            <div class="confirmation">
+
+                <a href="{% url 'student_delete' pk  %}">
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </a>
+                <a href="{% url 'student' pk %}">
+                    <button type="submit" class="btn btn-success">No</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
