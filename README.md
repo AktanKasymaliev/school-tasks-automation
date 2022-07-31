@@ -42,6 +42,7 @@ CREATE DATABASE <database name> owner <user>;
 ( Don't forget that database's host it is docker's database service name )
 
 * And finally start project: `docker-compose up --build`
+
 Test-Admin account creds: 
 
 -phone_number: 055555555
