@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block links %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/students_list.css' %}">
+{% endblock links %}
+
+{% block title %}Add Student{% endblock title %}
+
+{% block content %}
+<div class="parent">
+    <div class="block">
+            <br>
+            <h2 class='title'>All Students</h2>
+
+            <div class="input-group" id="search">
+                <div class="form-outline">
+                    <form action="{% url 'all_students' %}" method="get">
+                        <input name="search" id="form1" class="form-control" type="text" placeholder="School name, Student name...">
+                      </form>
+                </div>
+            </div>
+
+            <div class="info">
+                {% if student_list %}
+                    {% for student in student_list %}
+                        <div class="student">
+                            <a href="{% url 'student' student.pk %}"><strong>{{ student.id }}.{{ student.full_name }}</strong></a>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                        <br><br><br>
+                        <h1 id="there-are-no" style="text-align: center;">There are no students</h1>
+                {% endif %}
+            </div>
+    </div>
+</div>
+{% endblock %}

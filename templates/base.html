@@ -23,6 +23,9 @@
           {{ request.user }}
         </a>
         <div>
+          <a href="{% url 'all_students' %}" style="text-decoration: none; margin-right: 40px; color: brown;">
+            See all students
+          </a>
           <a href="{% url 'student_add' %}" style="text-decoration: none; margin-right: 40px; color: brown;">
             Add new student
           </a>

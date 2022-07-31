@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+
+from school.send_mail import send_email
 
 Teacher = get_user_model()
 
@@ -57,3 +61,9 @@ class Grade(models.Model):
         db_table = 'grades'
         verbose_name = 'Grade'
         verbose_name_plural = 'Grades'
+
+@receiver(post_save, sender=Student)
+def send_mail_to_student(sender, instance, created, *args, **kwargs):
+    """Sends email to student"""
+    if created:
+        send_email(instance)
