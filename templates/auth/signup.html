@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock links %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<div class="parent">
+    <div class="block">
+        <br>
+        <h2 class='title'>Sign Up</h2>
+
+        <form method="POST" style="width: 300px; margin-left: 350px;">
+          {{ form.as_p }}
+          {% csrf_token %}
+          <center><button type="submit" id='btn' class="btn btn-primary" style=" margin-top: 20px;">Sign Up</button></center>
+        </form>
+
+        <hr>
+        <center><p class="create-account">
+                Do you have an account? - <a href="{% url 'login' %}">Log In</a>
+        </p></center>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+.parent {
+    margin-top: 50px;
+}
+
+.block {
+    /* margin-top: 50px; */
+    border-radius: 20px;
+    width: 1000px;
+    height: 350px;
+    margin: auto;
+    background-color: white;
+}
+
+.title {
+    text-align: center;
+}
