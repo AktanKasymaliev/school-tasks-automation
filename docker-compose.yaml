@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+    school_db:
+        image: postgres:10.1-alpine
+        ports:
+          - "5432:5432"
+    school_web:
+        build: .
+        volumes: 
+            - .:/app/
+            - ./:/config
+        ports:
+            - "8000:8000"
+        depends_on: 
+            - school_db

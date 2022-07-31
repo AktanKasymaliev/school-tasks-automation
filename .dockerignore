@@ -1,0 +1,9 @@
+.git
+.cache
+**/*.class
+*.md
+!README*.md
+README-secret.md
+venv/
+000*
+*000
